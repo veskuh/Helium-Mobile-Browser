@@ -1,0 +1,14 @@
+heliummobilebrowser-build-desktop
+heliummobilebrowser-build-maemo
+heliummobilebrowser-build-meego
+
+qtc_packaging
+
+heliummobilebrowser.pro.user
+
+src-build-meego
+mobilebrowser-1.0/src/src.pro.user
+mobilebrowser-1.0/src/src.spec
+mobilebrowser-1.0/heliummobilebrowser.spec
+
+
