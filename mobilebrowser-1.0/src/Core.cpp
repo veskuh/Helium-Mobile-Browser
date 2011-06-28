@@ -11,6 +11,7 @@
 #include <QTimer>
 #include <QList>
 #include <QDesktopWidget>
+#include <QInputContext>
 
 #include "macros.h"
 #include "Settings.h"
@@ -359,4 +360,17 @@ void Core::addLogbookViewOnScene() {
 void Core::removeLogbookViewFromScene() {
    if ( m_logbookView )
       m_logbookView->setParent( NULL );
+}
+
+
+void Core::hideVkb() {
+   QInputContext *inputContext = qApp->inputContext();
+   if (!inputContext) {
+       // Not cool
+       return;
+   }
+
+   QEvent request(QEvent::CloseSoftwareInputPanel);
+   inputContext->filterEvent(&request);
+   inputContext->reset();
 }
