@@ -154,7 +154,7 @@ void Settings::reloadWebSettings() {
    globalWebSettings->setAttribute(QWebSettings::LocalContentCanAccessFileUrls, settings.value(SETTINGS_KEY_WEB_LOCAL_CONTENT_CAN_ACCESS_LOCAL_URLS).toBool());
 
 #if defined(Q_WS_MAEMO_5)
-   globalWebSettings->setAttribute(QWebSettings::XSSAuditorEnabled, settings.value(SETTINGS_KEY_WEB_XSS_AUDITING).toBool());
+   globalWebSettings->setAttribute(QWebSettings::XSSAuditingEnabled, settings.value(SETTINGS_KEY_WEB_XSS_AUDITING).toBool());
 #else
    globalWebSettings->setAttribute(QWebSettings::XSSAuditingEnabled, settings.value(SETTINGS_KEY_WEB_XSS_AUDITING).toBool());
 #endif

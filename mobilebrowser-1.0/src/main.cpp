@@ -63,11 +63,12 @@ int main(int argc, char** argv) {
    mainView.setAttribute(Qt::WA_Maemo5AutoOrientation, true); //< "Qt::WA_Maemo5PortraitOrientation" or "Qt::WA_Maemo5LandscapeOrientation" or "Qt::WA_Maemo5AutoOrientation"
 #endif
 
-#if defined(Q_OS_LINUX) || defined(Q_OS_MAC) || defined(Q_OS_WIN32)
+#if defined(Q_OS_MAC) || defined(Q_OS_WIN32)
    //desktop build, just open a window
 //   mainView.setWindowFlags(Qt::FramelessWindowHint);
    mainView.show();
 #else
+	//TODO recognise whether Q_OS_LINUX is defined and understand whether is meego or desktop linux
    //mobile builds, we want the whole screen!
    mainView.showFullScreen();
 #endif
