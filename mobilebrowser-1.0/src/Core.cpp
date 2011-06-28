@@ -10,6 +10,7 @@
 #include <QMetaType>
 #include <QTimer>
 #include <QList>
+#include <QDesktopWidget>
 
 #include "macros.h"
 #include "Settings.h"
@@ -20,6 +21,8 @@
 #define BROWSERVIEW_QML                   "BrowserView.qml"
 #define BROWSERVIEW_QML_WEBVIEW_OBJ_NAME  "webView"
 #define LOGBOOKVIEW_QML                   "LogbookView.qml"
+#define DEFAULT_WIDTH                     800
+#define DEFAULT_HEIGHT                    480
 
 // public:
 Core::Core(MainView *mainView, QObject *parent) :
@@ -38,8 +41,18 @@ Core::Core(MainView *mainView, QObject *parent) :
    OrientationFollower * orientation = new OrientationFollower(this);
 
    QDeclarativeContext *context = mainView->rootContext();
-   context->setContextProperty("screenWidth", 800);
-   context->setContextProperty("screenHeight", 480);
+
+#if defined(Q_OS_MAC) || defined(Q_OS_WIN32)
+   //desktop build, defaults
+   context->setContextProperty("screenWidth", DEFAULT_WIDTH);
+   context->setContextProperty("screenHeight", DEFAULT_HEIGHT);
+#else
+   //TODO recognise whether Q_OS_LINUX is defined and understand whether is meego or desktop linux
+   //mobile builds, we want the whole screen!
+   context->setContextProperty("screenWidth", qApp->desktop()->width());
+   context->setContextProperty("screenHeight", qApp->desktop()->height());
+#endif
+
    context->setContextProperty("Orientation", orientation);
    context->setContextProperty("mainWindow", mainView);
 
