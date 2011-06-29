@@ -63,6 +63,7 @@ Item {
       fieldText.text = textEdit.text;
       mouseGrabbed = false;
       fieldText.editFinished();
+      appcore.hideVkb();
    }
 
    // Set the "fieldText" to "<empty>" state, and emit the "editAborted" signal
