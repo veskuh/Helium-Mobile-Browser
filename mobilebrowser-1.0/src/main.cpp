@@ -7,6 +7,10 @@
 
 #include "CoreDbHelper.h"
 
+#if defined(Q_OS_SYMBIAN)
+#include "sym_iap_util.h"
+#endif
+
 /** Message Handler for qDebug, qWarning, qCritical and qFatal messages
 @param type Message Type
 @param msg Message Body
