@@ -57,7 +57,7 @@
 //Qt
 #include <QSettings>
 #include <QStringList>
-//#include <QTextCodec>
+#include <QTextCodec>
 
 _LIT(KIapNameSetting, "IAP\\Name");             // text - mandatory
 _LIT(KIapDialogPref, "IAP\\DialogPref");        // TUnit32 - optional
