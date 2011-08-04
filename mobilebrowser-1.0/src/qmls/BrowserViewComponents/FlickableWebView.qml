@@ -61,6 +61,10 @@ Flickable {
 //   interactive: webView.focus // If the "webView" has focus, then it's flickable
    onFocusChanged: { if ( focus ) webView.focus = true; } // Force focus on "webView" when received
 
+   onMovementStarted: webView.renderingEnabled = false;
+
+   onMovementEnded: webView.renderingEnabled = true;
+
    WebView {
       id: webView
       objectName: "webView"
