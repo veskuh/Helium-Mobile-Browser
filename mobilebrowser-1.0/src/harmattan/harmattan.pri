@@ -37,6 +37,15 @@ OTHER_FILES += \
     $$PWD/qml/LogbookViewComponents/HistoryListView.qml \
     $$PWD/qml/LogbookViewComponents/Header.qml \
     $$PWD/qml/LogbookViewComponents/BookmarksListView.qml
+
+    desktopfile.files = $$PWD/heliummobile.desktop
+    desktopfile.path = /usr/share/applications
+    INSTALLS += desktopfile
+
+    icon.files = $$PWD/heliumicon.png
+    icon.path = /usr/share/icons/hicolor/80x80/apps
+    INSTALLS += icon
+
 }
 
 # HEADERS += $$PWD/Declarativable.h
