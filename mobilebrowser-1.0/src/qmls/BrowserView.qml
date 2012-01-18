@@ -34,7 +34,7 @@ Item {
 
    width: screenWidth
    height: screenHeight
-   state: Orientation.state
+
 
    Item {
       id: webPanel
