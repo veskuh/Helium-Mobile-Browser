@@ -40,6 +40,11 @@ Core::Core(MainView *mainView, QObject *parent) :
 
    QDeclarativeContext *context = mainView->rootContext();
 
+
+#if defined(Q_WS_SIMULATOR)
+   context->setContextProperty("screenWidth", 480);
+   context->setContextProperty("screenHeight", 854);
+#else
 #if defined(Q_OS_MAC) || defined(Q_OS_WIN32)
    //desktop build, defaults
    context->setContextProperty("screenWidth", DEFAULT_WIDTH);
@@ -49,6 +54,7 @@ Core::Core(MainView *mainView, QObject *parent) :
    //mobile builds, we want the whole screen!
    context->setContextProperty("screenWidth", qApp->desktop()->width());
    context->setContextProperty("screenHeight", qApp->desktop()->height());
+#endif
 #endif
 
    context->setContextProperty("mainWindow", mainView);
@@ -358,15 +364,3 @@ void Core::removeLogbookViewFromScene() {
       m_logbookView->setParent( NULL );
 }
 
-
-void Core::hideVkb() {
-   QInputContext *inputContext = qApp->inputContext();
-   if (!inputContext) {
-       // Not cool
-       return;
-   }
-
-   QEvent request(QEvent::CloseSoftwareInputPanel);
-   inputContext->filterEvent(&request);
-   inputContext->reset();
-}

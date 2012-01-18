@@ -47,13 +47,6 @@ int main(int argc, char** argv) {
    app.setOrganizationName(ORG_NAME);
    app.setOrganizationDomain(ORG_DOMAIN);
 
-   // For notifying VKB of orientation changes
-   // this is meego specific and should be behind flag
-   QInputContext *ic = QInputContextFactory::create("MInputContext", 0);
-   if(ic) {
-       app.setInputContext(ic);
-   }
-
    // Init Resource Files
    Q_INIT_RESOURCE(qmls);
 

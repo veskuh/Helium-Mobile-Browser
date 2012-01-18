@@ -77,7 +77,6 @@ public slots:
    void showBrowserView();
 
    void deflateLogbookViewLater();
-   void hideVkb();
 
 private slots:
    void onEngineQuit();
