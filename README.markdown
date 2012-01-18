@@ -28,6 +28,11 @@ The work takes into focus 3 areas:
 * `mobilebrowser-1.0/` - contains the actual source code of the project
 * `screenshots/` - Screenshots, organized by date
 
+## Building for Harmattan QtComponents ##
+If building with QtSDK 1.1.4 or newer for Harmattan (N9) Helium the build compiles use of QtComponents by default.
+You can run QtComponents version in QtSimulator by giving QTCOMPONENTS_EDITION=harmattan as additional argument to qmake and in simulator selecting
+harmattan as edition for the components.
+
 # Credits #
 This project started from the `[qt-prefix]/demos/declarative/webbrowser/` ([see on qt.gitorious.org](http://qt.gitorious.org/qt/qt/trees/4.7/demos/declarative/webbrowser)), then evolved into what is today.
 

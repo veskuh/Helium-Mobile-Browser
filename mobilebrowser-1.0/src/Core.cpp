@@ -25,7 +25,7 @@
 #define DEFAULT_HEIGHT                    480
 
 // public:
-Core::Core(MainView *mainView, QObject *parent) :
+Core::Core(QDeclarativeView *mainView, QObject *parent) :
       QObject(parent),
       m_mainView(mainView),
       m_WebViewInterface(NULL),

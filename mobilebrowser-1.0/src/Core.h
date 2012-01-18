@@ -50,7 +50,7 @@ class Core : public QObject, public Declarativable
    Q_PROPERTY(QString currentUrl READ currentUrl WRITE setCurrentUrl NOTIFY currentUrlChanged)
 
 public:
-   Core(MainView *mainView, QObject *parent = 0);
+   Core(QDeclarativeView *mainView, QObject *parent = 0);
    virtual ~Core();
 
    /** (Gentlemen,) Start THIS Engine */
@@ -110,7 +110,7 @@ private:
    QStateMachine                       m_stateMachine;
    QString                             m_currentUrl;
    QSettings                           m_settings;
-   MainView                            *m_mainView; //< Not Owned
+   QDeclarativeView                    *m_mainView; //< Not Owned
    WebViewInterface                    *m_WebViewInterface; //< Owned
    BookmarksListModel                  *m_bookmarksModel; //< Owned, as a child QObject
    MostVisitedListModel                *m_mostVisitedModel; //< Owned, as a child QObject

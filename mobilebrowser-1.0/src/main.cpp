@@ -34,6 +34,7 @@ void messageHandler(QtMsgType type, const char *msg)
     }
 }
 
+
 int main(int argc, char** argv) {
    // Register a new Message Handler for qDebug/qWarning/qCritical/qFatal
 #ifdef INSTALL_MESSAGE_HANDLER

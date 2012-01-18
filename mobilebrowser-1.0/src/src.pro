@@ -13,8 +13,19 @@ QT += declarative \
 include(utility/utility.pri)
 include(models/models.pri)
 
-SOURCES += main.cpp \
-    Settings.cpp \
+# Choose components to be used by default when building for harmattan
+# for other platforms like QtSimulator and Nemo, we need to explicitly define QTCOMPONENTS=harmattan as parameter for qmake
+contains(MEEGO_EDITION, harmattan) {
+    QTCOMPONENTS_EDITION=harmattan
+}
+
+
+# For platforms with Harmattan QtComponents we use different main and resources
+!contains(QTCOMPONENTS_EDITION,harmattan)  {
+    SOURCES += main.cpp
+}
+
+SOURCES += Settings.cpp \
     MainView.cpp \
     Core.cpp \
     WebViewInterface.cpp \
@@ -63,10 +74,13 @@ OTHER_FILES += qmls/BrowserView.qml \
     qmls/LogbookViewComponents/LogbookListView.qml
 
 # Resources - DON'T forget to include the QML files
-RESOURCES += qmls.qrc
+!contains(QTCOMPONENTS_EDITION,harmattan)  {
+ RESOURCES += qmls.qrc
+}
 
 include(symbian/symbian.pri)
 include(maemo5/maemo5.pri)
+include(harmattan/harmattan.pri)
 
 # Desktop Specific
 #!maemo5 && !symbian {

@@ -29,8 +29,8 @@
 
 /** ------------------------------------- Proxy default Config */
 //#define USE_NETWORK_PROXY //< Comment this to disable the usage of this Proxy
-#define NETWORK_PROXY_HOSTNAME  ""
-#define NETWORK_PROXY_PORT      3128
+#define NETWORK_PROXY_HOSTNAME  "172.16.42.133"
+#define NETWORK_PROXY_PORT      8080
 
 /** ------------------------------------- OpenGL default Config */
 #define USE_OPENGL
@@ -51,7 +51,7 @@
 // "Mac (out of Orange Labs office)" undefs
 #if defined(Q_OS_MAC)
 //#undef USE_OPENGL
-#undef USE_NETWORK_PROXY
+//#undef USE_NETWORK_PROXY
 #endif
 
 /** ------------------------------------- Compilation Warnings (for the developer to look after) */
